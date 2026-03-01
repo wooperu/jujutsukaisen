@@ -118,7 +118,7 @@ li a:hover {
 .volume-card {
   list-style: none;
   background: #1a1a1a;
-  padding: 20px;
+  padding: 35px 55px 35px 55px;
   border-radius: 12px;
   margin-bottom: 40px;
   box-shadow: 0 0 10px rgba(255, 46, 99, 0.2);
