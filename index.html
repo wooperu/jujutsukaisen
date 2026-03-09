@@ -12,27 +12,28 @@
 
   <h2>Main Characters</h2>
 
-  <div class="character-section">
+<div class="character-section">
+  <div class="slider-row">
+    <button id="prev-btn" class="nav-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
 
-  <button id="prev-btn" class="nav-btn">
-    <svg viewBox="0 0 24 24">
-      <path d="M15 18l-6-6 6-6"/>
-    </svg>
-  </button>
+    <div class="character-card" id="character-card">
+      <img id="character-img">
+      <h3 id="character-name"></h3>
+      <p id="character-desc"></p>
+    </div>
 
-  <div class="character-card" id="character-card">
-    <img id="character-img">
-    <h3 id="character-name"></h3>
-    <p id="character-desc"></p>
-    <div class="dots" id="dots"></div>
+    <button id="next-btn" class="nav-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M9 6l6 6-6 6"/>
+      </svg>
+    </button>
   </div>
 
-  <button id="next-btn" class="nav-btn">
-    <svg viewBox="0 0 24 24">
-      <path d="M9 6l6 6-6 6"/>
-    </svg>
-  </button>
-
+  <div id="dots" class="dots"></div>
 </div>
 
   <h2>Volumes & Chapters</h2>

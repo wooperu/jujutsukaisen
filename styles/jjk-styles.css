@@ -57,14 +57,15 @@ li a:hover {
   overflow: hidden;
 }
 
-.character-card {
-  width: 320px;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  will-change: transform, opacity;
+.character-section img:hover {
+  transform: scale(1.05);
 }
 
-#character-desc {
-  min-height: 80px;
+.character-card {
+  width: 320px;
+  min-height: 420px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  will-change: transform, opacity;
 }
 
 .character-card.fade-out {
@@ -79,13 +80,6 @@ li a:hover {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.character-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-}
-
 #character-img {
   width: 300px;
   height: auto;
@@ -94,8 +88,15 @@ li a:hover {
   transition: transform 0.3s ease;
 }
 
-.character-section img:hover {
-  transform: scale(1.05);
+#character-desc {
+  min-height: 80px;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
 }
 
 .nav-btn {
@@ -123,10 +124,15 @@ li a:hover {
   filter: drop-shadow(0 0 8px #00f0ff);
 }
 
+.dots {
+  margin-top: 20px;
+  text-align: center;
+}
+
 .dots span {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background: gray;
   border-radius: 50%;
   margin: 5px;
