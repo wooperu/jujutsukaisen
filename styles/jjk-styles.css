@@ -93,27 +93,29 @@ li a:hover {
   transform: scale(1.05);
 }
 
-#prev-btn,
-#next-btn {
-  width: 100px;
-  height: auto;
-  filter: invert(1);
-  background: transparent;
+.nav-btn {
+  background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn svg {
+  width: 60px;
+  height: 60px;
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
   transition: transform 0.2s ease;
 }
 
-#prev-btn img,
-#next-btn img{
-  width: 40px;
-  height: auto;
-}
-
-#prev-btn:hover,
-#next-btn:hover {
-  transform: scale(1.15);
+.nav-btn:hover svg {
+  transform: scale(1.2);
+  stroke: #00f0ff;
+  filter: drop-shadow(0 0 8px #00f0ff);
 }
 
 .dots span {
