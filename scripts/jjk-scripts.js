@@ -19,10 +19,11 @@ const characters = [
     image: "images/characters/chara-illust-gojo.png",
     description: "The strongest jujutsu sorcerer with limitless cursed energy and Six Eyes."
   }
-]; 
+];
 
 let currentIndex = 0;
 let autoSlide;
+let isAnimating = false;
 
 const img = document.getElementById("character-img");
 const characterName = document.getElementById("character-name");
@@ -32,43 +33,50 @@ const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
 const dotsContainer = document.getElementById("dots");
 
-function updateCharacter(index) {
-  card.classList.add("fade-out");
-  
+function updateCharacter(index, direction = "next") {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const outClass = direction === "next" ? "slide-out-left" : "slide-out-right";
+  const inClass  = direction === "next" ? "slide-in-right" : "slide-in-left";
+
+  card.classList.add(outClass);
+
   setTimeout(() => {
     const character = characters[index];
     img.src = character.image;
     characterName.textContent = character.name;
     desc.textContent = character.description;
-
     updateDots();
 
-    card.classList.remove("fade-out");
-    card.classList.add("fade-in");
+    card.classList.remove(outClass);
+    card.classList.add(inClass);
 
     setTimeout(() => {
-      card.classList.remove("fade-in");
+      card.classList.remove(inClass);
+      isAnimating = false;
     }, 400);
-    
   }, 400);
 }
 
 function nextCharacter() {
   currentIndex = (currentIndex + 1) % characters.length;
-  updateCharacter(currentIndex);
+  updateCharacter(currentIndex, "next");
 }
 
 function prevCharacter() {
   currentIndex = (currentIndex - 1 + characters.length) % characters.length;
-  updateCharacter(currentIndex);
+  updateCharacter(currentIndex, "prev");
 }
 
 function createDots() {
   characters.forEach((_, index) => {
     const dot = document.createElement("span");
     dot.addEventListener("click", () => {
+      if (index === currentIndex) return;
+      const direction = index > currentIndex ? "next" : "prev";
       currentIndex = index;
-      updateCharacter(currentIndex);
+      updateCharacter(currentIndex, direction);
     });
     dotsContainer.appendChild(dot);
   });
@@ -85,7 +93,7 @@ function updateDots() {
 }
 
 function startAutoSlide() {
-  clearInterval(autoSlide); // to prevent stacking multiple intervals
+  clearInterval(autoSlide);
   autoSlide = setInterval(nextCharacter, 5000);
 }
 
