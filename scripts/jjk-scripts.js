@@ -19,7 +19,7 @@ const characters = [
     image: "images/characters/chara-illust-gojo.png",
     description: "The strongest jujutsu sorcerer with limitless cursed energy and Six Eyes."
   }
-];
+]; 
 
 let currentIndex = 0;
 let autoSlide;

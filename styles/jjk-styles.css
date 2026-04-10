@@ -54,7 +54,7 @@ li a:hover {
   margin-bottom: 50px;
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 #character-img:hover {
@@ -71,20 +71,47 @@ li a:hover {
   justify-content: flex-start;
   gap: 10px;
   text-align: center;
-  transition: opacity 0.4s ease, transform 0.4s ease;
   will-change: transform, opacity;
 }
 
-.character-card.fade-out {
-  opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+/* slide out to the left (next) */
+.character-card.slide-out-left {
+  animation: slideOutLeft 0.4s forwards;
 }
 
-.character-card.fade-in {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+/* slide out to the right (prev) */
+.character-card.slide-out-right {
+  animation: slideOutRight 0.4s forwards;
+}
+
+/* slide in from the right (next) */
+.character-card.slide-in-right {
+  animation: slideInRight 0.4s forwards;
+}
+
+/* slide in from the left (prev) */
+.character-card.slide-in-left {
+  animation: slideInLeft 0.4s forwards;
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateX(0);     opacity: 1; }
+  to   { transform: translateX(-100px); opacity: 0; }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(100px); opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
 }
 
 #character-img {
