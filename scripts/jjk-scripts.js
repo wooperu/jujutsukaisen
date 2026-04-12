@@ -59,12 +59,23 @@ function updateCharacter(index, direction = "next") {
     desc.textContent = character.description;
     updateDots();
 
+    let fadeIn;
+
     if (currentIndex === 3 && userHasInteracted) {
       gojoTheme.currentTime = 0;
+      gojoTheme.volume = 0.5;
       gojoTheme.play().catch(() => {
-        console.warn("Gojo theme blocked by browser.");
+      console.warn("Gojo theme blocked by browser.");
       });
+      const fadeIn = setInterval(() => {
+        if (gojoTheme.volume < 1.0) {
+          gojoTheme.volume = Math.min(1.0, gojoTheme.volume + 0.02);
+        } else {
+          clearInterval(fadeIn);
+        }
+      }, 60);
     } else {
+      clearInterval(fadeIn);
       gojoTheme.pause();
       gojoTheme.currentTime = 0;
     }
