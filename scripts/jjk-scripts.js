@@ -17,7 +17,7 @@ const characters = [
   {
     name: "Gojo Satoru",
     image: "images/characters/chara-illust-gojo.png",
-    description: "The strongest jujutsu sorcerer with limitless cursed energy and Six Eyes."
+    description: "The strongest jujutsu sorcerer with limitless cursed technique and Six Eyes."
   }
 ];
 
@@ -68,7 +68,7 @@ function updateCharacter(index, direction = "next") {
       gojoTheme.pause();
       gojoTheme.currentTime = 0;
     }
-    
+
     card.classList.remove(outClass);
     card.classList.add(inClass);
 
