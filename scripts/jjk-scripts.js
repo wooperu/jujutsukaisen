@@ -36,6 +36,7 @@ const dotsContainer = document.getElementById("dots");
 function updateCharacter(index, direction = "next") {
   if (isAnimating) return;
   isAnimating = true;
+  currentIndex = index;
 
   const outClass = direction === "next" ? "slide-out-left" : "slide-out-right";
   const inClass  = direction === "next" ? "slide-in-right" : "slide-in-left";
@@ -60,13 +61,11 @@ function updateCharacter(index, direction = "next") {
 }
 
 function nextCharacter() {
-  currentIndex = (currentIndex + 1) % characters.length;
-  updateCharacter(currentIndex, "next");
+  updateCharacter((currentIndex + 1) % characters.length, "next");
 }
 
 function prevCharacter() {
-  currentIndex = (currentIndex - 1 + characters.length) % characters.length;
-  updateCharacter(currentIndex, "prev");
+  updateCharacter((currentIndex - 1 + characters.length) % characters.length, "prev");
 }
 
 function createDots() {
