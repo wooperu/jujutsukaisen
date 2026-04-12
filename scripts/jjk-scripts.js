@@ -35,6 +35,12 @@ const dotsContainer = document.getElementById("dots");
 const characterSection = document.querySelector(".character-section");
 const gojoTheme = document.getElementById("gojo-theme");
 
+let userHasInteracted = false;
+
+document.addEventListener("click", () => { userHasInteracted = true; }, { once: true });
+document.addEventListener("keydown", () => { userHasInteracted = true; }, { once: true });
+document.addEventListener("scroll", () => { userHasInteracted = true; }, { once: true });
+
 function updateCharacter(index, direction = "next") {
   if (isAnimating) return;
   isAnimating = true;
@@ -53,16 +59,16 @@ function updateCharacter(index, direction = "next") {
     desc.textContent = character.description;
     updateDots();
 
-    if (currentIndex === 3) {
+    if (currentIndex === 3 && userHasInteracted) {
       gojoTheme.currentTime = 0;
       gojoTheme.play().catch(() => {
-      console.warn("Gojo theme blocked by browser until user interacts with the page.");
-    });
+        console.warn("Gojo theme blocked by browser.");
+      });
     } else {
       gojoTheme.pause();
       gojoTheme.currentTime = 0;
     }
-
+    
     card.classList.remove(outClass);
     card.classList.add(inClass);
 
