@@ -44,8 +44,9 @@ function updateCharacter(index, direction = "next") {
   card.classList.add(outClass);
 
   setTimeout(() => {
-    const character = characters[index];
+    const character = characters[currentIndex];
     img.src = character.image;
+    img.alt = character.name;
     characterName.textContent = character.name;
     desc.textContent = character.description;
     updateDots();
@@ -72,10 +73,10 @@ function createDots() {
   characters.forEach((_, index) => {
     const dot = document.createElement("span");
     dot.addEventListener("click", () => {
-      if (index === currentIndex) return;
+      if (index === currentIndex || isAnimating) return;
       const direction = index > currentIndex ? "next" : "prev";
-      currentIndex = index;
-      updateCharacter(currentIndex, direction);
+      updateCharacter(index, direction);
+      startAutoSlide();
     });
     dotsContainer.appendChild(dot);
   });
@@ -83,11 +84,9 @@ function createDots() {
 
 function updateDots() {
   const dots = dotsContainer.children;
-
   for (let i = 0; i < dots.length; i++) {
     dots[i].classList.remove("active");
   }
-
   dots[currentIndex].classList.add("active");
 }
 
@@ -99,6 +98,22 @@ function startAutoSlide() {
 function stopAutoSlide() {
   clearInterval(autoSlide);
 }
+
+let touchStartX = 0;
+
+document.querySelector(".character-section").addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+document.querySelector(".character-section").addEventListener("touchend", (e) => {
+  const delta = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(delta) < 50) return;
+  if (delta > 0) {
+    nextCharacter();
+  } else {
+    prevCharacter();
+  }
+});
 
 nextBtn.addEventListener("click", nextCharacter);
 prevBtn.addEventListener("click", prevCharacter);

@@ -65,33 +65,29 @@ const volumes = [
 
 function renderVolumes(data) {
   const volumeList = document.getElementById("volume-list");
-  volumeList.innerHTML = "";
 
-  data.forEach(volume => {
-    const volumeHTML = `
-      <li class="volume-card">
-        <h3 class="volume-title">${volume.title}</h3>
+  const html = data.map(volume => `
+    <li class="volume-card">
+      <h3 class="volume-title">${volume.title}</h3>
 
-        <a href="${volume.chapters[0].link}" class="volume-cover" target="_blank">
-          <img src="${volume.cover}" alt="${volume.title}" loading="lazy">
-        </a>
+      <a href="${volume.chapters[0].link}" class="volume-cover" target="_blank">
+        <img src="${volume.cover}" alt="Volume ${volume.title} cover" loading="lazy">
+      </a>
 
-        <ul class="chapter-list">
-          <h4>Chapters list:</h4>
-          ${volume.chapters
-            .map(chapter => `
-              <li>
-                <a href="${chapter.link}" class="chapter-title" target="_blank">
-                  ${chapter.number}. ${chapter.title}
-                </a>
-              </li>
-            `)
-            .join("")}
-        </ul>
-      </li>
-    `;
-    volumeList.innerHTML += volumeHTML;
-  });
+      <h4>Chapters list:</h4>
+      <ul class="chapter-list">
+        ${volume.chapters.map(chapter => `
+          <li>
+            <a href="${chapter.link}" class="chapter-title" target="_blank">
+              ${chapter.number}. ${chapter.title}
+            </a>
+          </li>
+        `).join("")}
+      </ul>
+    </li>
+  `).join("");
+
+  volumeList.innerHTML = html;
 }
 
 renderVolumes(volumes);
