@@ -17,7 +17,7 @@ const characters = [
   {
     name: "Gojo Satoru",
     image: "images/characters/chara-illust-gojo.png",
-    description: "The strongest jujutsu sorcerer with limitless cursed technique and Six Eyes."
+    description: "The strongest jujutsu sorcerer with Limitless Cursed Technique and Six Eyes."
   }
 ];
 
