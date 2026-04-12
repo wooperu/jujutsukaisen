@@ -33,6 +33,7 @@ const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
 const dotsContainer = document.getElementById("dots");
 const characterSection = document.querySelector(".character-section");
+const gojoTheme = document.getElementById("gojo-theme");
 
 function updateCharacter(index, direction = "next") {
   if (isAnimating) return;
@@ -51,6 +52,16 @@ function updateCharacter(index, direction = "next") {
     characterName.textContent = character.name;
     desc.textContent = character.description;
     updateDots();
+
+    if (currentIndex === 3) {
+      gojoTheme.currentTime = 0;
+      gojoTheme.play().catch(() => {
+      console.warn("Gojo theme blocked by browser until user interacts with the page.");
+    });
+    } else {
+      gojoTheme.pause();
+      gojoTheme.currentTime = 0;
+    }
 
     card.classList.remove(outClass);
     card.classList.add(inClass);
