@@ -32,6 +32,7 @@ const card = document.getElementById("character-card");
 const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
 const dotsContainer = document.getElementById("dots");
+const characterSection = document.querySelector(".character-section");
 
 function updateCharacter(index, direction = "next") {
   if (isAnimating) return;
@@ -99,13 +100,39 @@ function stopAutoSlide() {
   clearInterval(autoSlide);
 }
 
+let wheelCooldown = false;
+
+function isSectionInView() {
+  const rect = characterSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  return rect.top <= windowHeight * 0.35 && rect.bottom >= windowHeight * 0.65;
+}
+
+window.addEventListener("wheel", (e) => {
+  if (!isSectionInView() || wheelCooldown) return;
+
+  e.preventDefault();
+  wheelCooldown = true;
+
+  if (e.deltaY > 0) {
+    nextCharacter();
+  } else {
+    prevCharacter();
+  }
+
+  setTimeout(() => {
+    wheelCooldown = false;
+  }, 900);
+
+}, { passive: false });
+
 let touchStartX = 0;
 
-document.querySelector(".character-section").addEventListener("touchstart", (e) => {
+characterSection.addEventListener("touchstart", (e) => {
   touchStartX = e.touches[0].clientX;
 });
 
-document.querySelector(".character-section").addEventListener("touchend", (e) => {
+characterSection.addEventListener("touchend", (e) => {
   const delta = touchStartX - e.changedTouches[0].clientX;
   if (Math.abs(delta) < 50) return;
   if (delta > 0) {
@@ -118,11 +145,8 @@ document.querySelector(".character-section").addEventListener("touchend", (e) =>
 nextBtn.addEventListener("click", nextCharacter);
 prevBtn.addEventListener("click", prevCharacter);
 
-document.querySelector(".character-section")
-  .addEventListener("mouseenter", stopAutoSlide);
-
-document.querySelector(".character-section")
-  .addEventListener("mouseleave", startAutoSlide);
+characterSection.addEventListener("mouseenter", stopAutoSlide);
+characterSection.addEventListener("mouseleave", startAutoSlide);
 
 createDots();
 updateCharacter(currentIndex);
