@@ -3,7 +3,7 @@ const characters = [
     name: "Yuji Itadori",
     image: "images/characters/itadori.png",
     description: "A high school student with immense physical strength who became the vessel of Sukuna.",
-    theme: null
+    theme: "audio/The Scariest.mp3"
   },
   {
     name: "Fushiguro Megumi",
@@ -174,6 +174,7 @@ function isSectionInView() {
   return rect.top <= windowHeight * 0.35 && rect.bottom >= windowHeight * 0.65;
 }
 
+/*
 window.addEventListener("wheel", (e) => {
   if (!isSectionInView() || wheelCooldown) return;
 
@@ -191,6 +192,7 @@ window.addEventListener("wheel", (e) => {
   }, 900);
 
 }, { passive: false });
+*/
 
 let touchStartX = 0;
 
