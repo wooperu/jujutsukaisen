@@ -2,22 +2,26 @@ const characters = [
   {
     name: "Yuji Itadori",
     image: "images/characters/chara-illust-itadori.png",
-    description: "A high school student with immense physical strength who became the vessel of Sukuna."
+    description: "A high school student with immense physical strength who became the vessel of Sukuna.",
+    theme: null
   },
   {
     name: "Fushiguro Megumi",
     image: "images/characters/chara-illust-fushiguro.png",
-    description: "A sorcerer who uses shadow-based techniques and summons shikigami."
+    description: "A sorcerer who uses shadow-based techniques and summons shikigami.",
+    theme: null
   },
   {
     name: "Kugisaki Nobara",
     image: "images/characters/chara-illust-kugisaki.png",
-    description: "A confident sorcerer who uses cursed tools like nails and a hammer."
+    description: "A confident sorcerer who uses cursed tools like nails and a hammer.",
+    theme: null
   },
   {
     name: "Gojo Satoru",
     image: "images/characters/chara-illust-gojo.png",
-    description: "The strongest jujutsu sorcerer with Limitless Cursed Technique and Six Eyes."
+    description: "The strongest jujutsu sorcerer with Limitless Cursed Technique and Six Eyes.",
+    theme: "audio/gojo-theme.mp3"
   }
 ];
 
@@ -33,7 +37,9 @@ const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
 const dotsContainer = document.getElementById("dots");
 const characterSection = document.querySelector(".character-section");
-const gojoTheme = document.getElementById("gojo-theme");
+const characterTheme = document.getElementById("character-theme");
+const muteBtn = document.getElementById("mute-btn");
+let fadeIn;
 
 let userHasInteracted = false;
 
@@ -59,25 +65,28 @@ function updateCharacter(index, direction = "next") {
     desc.textContent = character.description;
     updateDots();
 
-    let fadeIn;
-
-    if (currentIndex === 3 && userHasInteracted) {
-      gojoTheme.currentTime = 0;
-      gojoTheme.volume = 0.5;
-      gojoTheme.play().catch(() => {
-      console.warn("Gojo theme blocked by browser.");
+    if (character.theme && userHasInteracted) {
+      characterTheme.src = character.theme;
+      characterTheme.currentTime = 0;
+      characterTheme.volume = 0.5;
+      characterTheme.play().catch(() => {
+        console.warn("Theme blocked by browser.");
       });
-      const fadeIn = setInterval(() => {
-        if (gojoTheme.volume < 1.0) {
-          gojoTheme.volume = Math.min(1.0, gojoTheme.volume + 0.02);
+      fadeIn = setInterval(() => {
+        if (characterTheme.volume < 1.0) {
+          characterTheme.volume = Math.min(1.0, characterTheme.volume + 0.02);
         } else {
           clearInterval(fadeIn);
         }
       }, 60);
+      muteBtn.disabled = false;
+      muteBtn.style.opacity = "1";
     } else {
       clearInterval(fadeIn);
-      gojoTheme.pause();
-      gojoTheme.currentTime = 0;
+      characterTheme.pause();
+      characterTheme.currentTime = 0;
+      muteBtn.disabled = true;
+      muteBtn.style.opacity = "0.3";
     }
 
     card.classList.remove(outClass);
@@ -118,6 +127,11 @@ function updateDots() {
   }
   dots[currentIndex].classList.add("active");
 }
+
+muteBtn.addEventListener("click", () => {
+  characterTheme.muted = !characterTheme.muted;
+  muteBtn.textContent = characterTheme.muted ? "🔇" : "🔊";
+});
 
 function startAutoSlide() {
   clearInterval(autoSlide);
