@@ -34,6 +34,18 @@ const characters = [
     image: "images/characters/hakari.gif",
     description: "A jujutsu sorcerer with a gambling-based cursed technique, capable of gaining overwhelming power through jackpots.",
     theme: "audio/hakari-theme.mp3"
+  },
+  {
+    name: "Hiromi Higuruma",
+    image: "images/characters/higuruma.webp",
+    description: "A former defense attorney turned jujutsu sorcerer who uses a courtroom-based cursed technique to judge and punish his opponents.",
+    theme: "audio/higuruma-theme.mp3"
+  },
+  {
+    name: "Ryu Ishigori",
+    image: "images/characters/ryu.webp",
+    description: "A jujutsu sorcerer from 400 years ago reincarnated into the Culling Game, known for his overwhelming cursed energy output and desire for a satisfying battle.",
+    theme: "audio/ryu-theme.mp3"
   }
 ];
 
