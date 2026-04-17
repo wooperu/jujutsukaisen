@@ -1,27 +1,39 @@
 const characters = [
   {
     name: "Yuji Itadori",
-    image: "images/characters/chara-illust-itadori.png",
+    image: "images/characters/itadori.png",
     description: "A high school student with immense physical strength who became the vessel of Sukuna.",
     theme: null
   },
   {
     name: "Fushiguro Megumi",
-    image: "images/characters/chara-illust-fushiguro.png",
+    image: "images/characters/fushiguro.png",
     description: "A sorcerer who uses shadow-based techniques and summons shikigami.",
     theme: null
   },
   {
     name: "Kugisaki Nobara",
-    image: "images/characters/chara-illust-kugisaki.png",
+    image: "images/characters/kugisaki.png",
     description: "A confident sorcerer who uses cursed tools like nails and a hammer.",
     theme: null
   },
   {
     name: "Gojo Satoru",
-    image: "images/characters/chara-illust-gojo.png",
+    image: "images/characters/gojo.png",
     description: "The strongest jujutsu sorcerer with Limitless Cursed Technique and Six Eyes.",
     theme: "audio/gojo-theme.mp3"
+  },
+  {
+    name: "Okkotsu Yuta",
+    image: "images/characters/yuta.png",
+    description: "A special-grade sorcerer with immense cursed energy who is bound to the powerful curse Rika.",
+    theme: "audio/yuta-theme.mp3"
+  },
+  {
+    name: "Hakari Kinji",
+    image: "images/characters/hakari.gif",
+    description: "A jujutsu sorcerer with a gambling-based cursed technique, capable of gaining overwhelming power through jackpots.",
+    theme: "audio/hakari-theme.mp3"
   }
 ];
 
