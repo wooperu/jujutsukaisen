@@ -21,31 +21,31 @@ const characters = [
     name: "Gojo Satoru",
     image: "images/characters/gojo.png",
     description: "The strongest jujutsu sorcerer with Limitless Cursed Technique and Six Eyes.",
-    theme: "audio/gojo-theme.mp3"
+    theme: "audio/Hey Daddy.mp3"
   },
   {
     name: "Okkotsu Yuta",
     image: "images/characters/yuta.png",
     description: "A special-grade sorcerer with immense cursed energy who is bound to the powerful curse Rika.",
-    theme: "audio/yuta-theme.mp3"
+    theme: "audio/Hello Juliet.mp3"
   },
   {
     name: "Hakari Kinji",
     image: "images/characters/hakari.gif",
     description: "A jujutsu sorcerer with a gambling-based cursed technique, capable of gaining overwhelming power through jackpots.",
-    theme: "audio/hakari-theme.mp3"
+    theme: "audio/TUCA DONKA.mp3"
   },
   {
     name: "Hiromi Higuruma",
     image: "images/characters/higuruma.webp",
     description: "A former defense attorney turned jujutsu sorcerer who uses a courtroom-based cursed technique to judge and punish his opponents.",
-    theme: "audio/higuruma-theme.mp3"
+    theme: "audio/AIZO.mp3"
   },
   {
     name: "Ryu Ishigori",
     image: "images/characters/ryu.webp",
     description: "A jujutsu sorcerer from 400 years ago reincarnated into the Culling Game, known for his overwhelming cursed energy output and desire for a satisfying battle.",
-    theme: "audio/ryu-theme.mp3"
+    theme: "audio/Jane!.mp3"
   }
 ];
 
