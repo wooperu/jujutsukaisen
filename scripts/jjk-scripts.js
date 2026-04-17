@@ -3,7 +3,7 @@ const characters = [
     name: "Yuji Itadori",
     image: "images/characters/itadori.png",
     description: "A high school student with immense physical strength who became the vessel of Sukuna.",
-    theme: "audio/the-scariest.mp3"
+    theme: "audio/power.mp3"
   },
   {
     name: "Fushiguro Megumi",
