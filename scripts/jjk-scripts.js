@@ -3,7 +3,7 @@ const characters = [
     name: "Yuji Itadori",
     image: "images/characters/itadori.png",
     description: "A high school student with immense physical strength who became the vessel of Sukuna.",
-    theme: "audio/The Scariest.mp3"
+    theme: "audio/the-scariest.mp3"
   },
   {
     name: "Fushiguro Megumi",
@@ -21,31 +21,31 @@ const characters = [
     name: "Gojo Satoru",
     image: "images/characters/gojo.png",
     description: "The strongest jujutsu sorcerer with Limitless Cursed Technique and Six Eyes.",
-    theme: "audio/Hey Daddy.mp3"
+    theme: "audio/hey-daddy.mp3"
   },
   {
     name: "Okkotsu Yuta",
     image: "images/characters/yuta.png",
-    description: "A special-grade sorcerer with immense cursed energy who is bound to the powerful curse Rika.",
-    theme: "audio/Hello Juliet.mp3"
+    description: "A special-grade sorcerer with immense cursed energy who is connected to the powerful curse Rika.",
+    theme: "audio/hello-juliet.mp3"
   },
   {
     name: "Hakari Kinji",
     image: "images/characters/hakari.gif",
     description: "A jujutsu sorcerer with a gambling-based cursed technique, capable of gaining overwhelming power through jackpots.",
-    theme: "audio/TUCA DONKA.mp3"
+    theme: "audio/tuca-donka.mp3"
   },
   {
     name: "Hiromi Higuruma",
     image: "images/characters/higuruma.webp",
     description: "A former defense attorney turned jujutsu sorcerer who uses a courtroom-based cursed technique to judge and punish his opponents.",
-    theme: "audio/AIZO.mp3"
+    theme: "audio/aizo.mp3"
   },
   {
     name: "Ryu Ishigori",
     image: "images/characters/ryu.webp",
     description: "A jujutsu sorcerer from 400 years ago reincarnated into the Culling Game, known for his overwhelming cursed energy output and desire for a satisfying battle.",
-    theme: "audio/Jane!.mp3"
+    theme: "audio/jane.mp3"
   }
 ];
 
