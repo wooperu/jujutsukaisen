@@ -39,7 +39,7 @@ const characters = [
     name: "Hiromi Higuruma",
     image: "images/characters/higuruma.webp",
     description: "A former defense attorney turned jujutsu sorcerer who uses a courtroom-based cursed technique to judge and punish his opponents.",
-    theme: "audio/aizo.mp3"
+    theme: "audio/prayer-instrumental.mp3"
   },
   {
     name: "Ryu Ishigori",
